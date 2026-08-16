@@ -14,9 +14,8 @@ The topology is split into two connected environments:
 ## Topology
 
 <p align="center">
-  <img src="topology.png" alt="Network Topology Diagram" width="900">
+  <img src="Topology.png" alt="Network Topology Diagram" width="900">
 </p>
-
 ---
 
 ## Architecture
@@ -133,3 +132,7 @@ All services sit behind defined security policies rather than being openly reach
 
 ## License
 Shared for educational purposes — feel free to fork and adapt for your own coursework or labs.
+
+
+[def]: opology.pn
+[def2]: def

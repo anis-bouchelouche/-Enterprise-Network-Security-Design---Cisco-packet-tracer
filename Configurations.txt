@@ -1,0 +1,3721 @@
+#############################################################################################
+
+    File Name     : Full Documentation
+    Lab Name      : Enterprise Network Design & Security Implementation (Cisco Packet Tracer 9.0.0)
+    Done By       : Muhammad Ayman
+    Starting Date : 17 December 2025
+    Ending Date   : 09 January 2025
+
+#############################################################################################
+
+############################################################################
+                              Network   --> 10.11.12.0   /24   255.255.255.0
+IPv4 & IPv6 Subnetting
+                              Network   --> 2000:12:34:: /64
+############################################################################
+
+################################
+For L.H.S
+################################
+# Data VLANs
+VLAN 10 (IT):
+Network   --> 10.11.12.0       /29   255.255.255.248
+Broadcast --> 10.11.12.7
+
+VLAN 20 (Sales):
+Network   --> 10.11.12.8       /29   255.255.255.248
+Broadcast --> 10.11.12.15
+
+VLAN 30 (Support):
+Network   --> 10.11.12.16      /29   255.255.255.248
+Broadcast --> 10.11.12.23
+
+VLAN 40 (HR):
+Network   --> 10.11.12.24      /29   255.255.255.248
+Broadcast --> 10.11.12.31
+
+VLAN 50 (Managers):
+Network   --> 10.11.12.32      /29   255.255.255.248
+Broadcast --> 10.11.12.39
+
+VLAN 60 (Developers):
+Network   --> 10.11.12.40      /29   255.255.255.248
+Broadcast --> 10.11.12.47
+
+VLAN 70 (Finance):
+Network   --> 10.11.12.48      /29   255.255.255.248
+Broadcast --> 10.11.12.55
+
+VLAN 80 (Desginers):
+Network   --> 10.11.12.56      /29   255.255.255.248
+Broadcast --> 10.11.12.63
+
+VLAN 90  (Access Point):
+Network   --> 10.11.12.64      /29   255.255.255.248
+Broadcast --> 10.11.12.71
+
+# Management VLANs
+VLAN 100 (Management):
+Network   --> 10.11.12.72      /29   255.255.255.248
+Broadcast --> 10.11.12.79
+
+VLAN 110 (Management):
+Network   --> 10.11.12.80      /29   255.255.255.248
+Broadcast --> 10.11.12.87
+
+VLAN 120 (Management):
+Network   --> 10.11.12.88      /29   255.255.255.248
+Broadcast --> 10.11.12.95
+
+# Subnets Between Routers:
+Between R1 & R2:
+Network   --> 10.11.12.200     /30   255.255.255.252
+Broadcast --> 10.11.12.203
+
+Between R1 & R3:
+Network   --> 10.11.12.204     /30   255.255.255.252
+Broadcast --> 10.11.12.207
+
+Between R1 & R4:
+Network   --> 10.11.12.208     /30   255.255.255.252
+Broadcast --> 10.11.12.211
+
+Between R1 & R5:
+Network   --> 10.11.12.212     /30   255.255.255.252
+Broadcast --> 10.11.12.215
+
+################################
+For R.H.S
+################################
+# Data VLANs
+VLAN 200 (Instructors):
+Network   --> 10.11.12.96      /29   255.255.255.248
+Broadcast --> 10.11.12.103
+Network   --> 2000:12:34:200:: /64
+
+VLAN 210 (Researchers):
+Network   --> 10.11.12.104     /29   255.255.255.248
+Broadcast --> 10.11.12.111
+Network   --> 2000:12:34:210:: /64
+
+VLAN 220 (Graphics):
+Network   --> 10.11.12.112     /29   255.255.255.248
+Broadcast --> 10.11.12.119
+Network   --> 2000:12:34:220:: /64
+
+VLAN 230 (Branding):
+Network   --> 10.11.12.120     /29   255.255.255.248
+Broadcast --> 10.11.12.127
+Network   --> 2000:12:34:230:: /64
+
+VLAN 240 (Analysts):
+Network   --> 10.11.12.128     /29   255.255.255.248
+Broadcast --> 10.11.12.135
+Network   --> 2000:12:34:240:: /64
+
+VLAN 250 (Auditors):
+Network   --> 10.11.12.136     /29   255.255.255.248
+Broadcast --> 10.11.12.143
+Network   --> 2000:12:34:250:: /64
+
+# Management VLANs:
+VLAN 260:
+Network   --> 10.11.12.144     /29   255.255.255.248
+Broadcast --> 10.11.12.151
+Network   --> 2000:12:34:260:: /64
+
+VLAN 270:
+Network   --> 10.11.12.152     /29   255.255.255.248
+Broadcast --> 10.11.12.159
+Network   --> 2000:12:34:270:: /64
+
+VLAN 280:
+Network   --> 10.11.12.160     /29   255.255.255.248
+Broadcast --> 10.11.12.167
+Network   --> 2000:12:34:280:: /64
+
+# Subnets Between Routers
+Between R5 & R6:
+Network   --> 10.11.12.216     /30   255.255.255.252
+Broadcast --> 10.11.12.219
+
+Between R5 & R7:
+Network   --> 10.11.12.220     /30   255.255.255.252
+Broadcast --> 10.11.12.223
+
+Between R5 & R8:
+Network   --> 10.11.12.224     /30   255.255.255.252
+Broadcast --> 10.11.12.227
+
+Between R5 & ASA0:
+Network   --> 10.11.12.232     /29   255.255.255.248
+Broadcast --> 10.11.12.239
+
+Subnet Tunnel 0 (Between R6 & R7):
+Network   --> 2001:12:34:1::0  /64
+
+Subnet Tunnel 1 (Between R6 & R8):
+Network   --> 2001:12:34:2::0  /64
+
+Subnet Tunnel 2 (Between R7 & R8):
+Network   --> 2001:12:34:3::0  /64
+
+################################
+For Top Right Zone
+################################
+#Management VLANs:
+VLAN 300 (Management):
+Network   --> 10.11.12.168     /29   255.255.255.248
+Broadcast --> 10.11.12.175
+
+VLAN 400 (Management):
+Network   --> 10.11.12.176     /29   255.255.255.248
+Broadcast --> 10.11.12.183
+
+# Firewall:
+Between ASA0 & S19 (DMZ):
+Network   --> 10.11.12.184     /29   255.255.255.248
+Broadcast --> 10.11.12.191
+
+Between ASA0 & S20 (INSIDE):
+Network   --> 10.11.12.192     /29   255.255.255.248
+Broadcast --> 10.11.12.199
+
+################################
+Configrations
+################################
+######
+# S2 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname S2
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 10
+name IT
+exit
+vlan 20
+name Sales
+exit
+vlan 30
+name Support
+exit
+vlan 90
+name Access-Point
+exit
+vlan 100
+name Management
+exit
+vlan 205
+name Unused-Ports
+exit
+vlan 201
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/1
+switchport mode access
+switchport access vlan 10
+exit
+interface fastEthernet 0/3
+switchport mode access
+switchport access vlan 20
+exit
+interface fastEthernet 0/2
+switchport mode access
+switchport access vlan 30
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 10,20,30,90,100
+switchport trunk native vlan 201
+exit
+
+interface vlan 100
+ip address 10.11.12.74 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.73
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/4-24, gigabitEthernet 0/2
+switchport access vlan 205
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/1-3
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 10,20,30,90
+ip arp inspection vlan 10,20,30,90
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/1-3
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! 802.1X Authentication
+aaa new-model
+radius-server host 10.11.12.34 key cisco
+
+aaa authentication dot1x default group radius
+
+dot1x system-auth-control
+
+interface range fastEthernet 0/1-3
+authentication port-control auto
+dot1x pae authenticator
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# S3 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname S3
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 10
+name IT
+exit
+vlan 20
+name Sales
+exit
+vlan 30
+name Support
+exit
+vlan 90
+name Access-Point
+exit
+vlan 100
+name Management
+exit
+vlan 205
+name Unused-Ports
+exit
+vlan 201
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/1
+switchport mode access
+switchport access vlan 30
+exit
+interface fastEthernet 0/3
+switchport mode access
+switchport access vlan 10
+exit
+interface fastEthernet 0/9
+switchport mode access
+switchport access vlan 10
+exit
+interface fastEthernet 0/2
+switchport mode access
+switchport access vlan 20
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 10,20,30,90,100
+switchport trunk native vlan 201
+exit
+
+interface vlan 100
+ip address 10.11.12.75 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.73
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/4-8, fastEthernet 0/10-24, gigabitEthernet 0/2
+switchport access vlan 205
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/1-3, fastEthernet 0/9
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 10,20,30,90
+ip arp inspection vlan 10,20,30,90
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/1-3, fastEthernet 0/9
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! 802.1X Authentication
+aaa new-model
+radius-server host 10.11.12.34 key cisco
+
+aaa authentication dot1x default group radius
+
+dot1x system-auth-control
+
+interface range fastEthernet 0/1-3, fastEthernet 0/9
+authentication port-control auto
+dot1x pae authenticator
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# S1 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname S1
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 10
+name IT
+exit
+vlan 20
+name Sales
+exit
+vlan 30
+name Support
+exit
+vlan 90
+name Access-Point
+exit
+vlan 100
+name Management
+exit
+vlan 205
+name Unused-Ports
+exit
+vlan 201
+name New-Native
+exit
+
+! Configure Interfaces
+interface gigabitEthernet 0/2
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 10,20,30,90,100
+switchport trunk native vlan 201
+exit
+interface fastEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 10,20,30,90,100
+switchport trunk native vlan 201
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 10,20,30,90,100
+switchport trunk native vlan 201
+exit
+interface fastEthernet 0/3
+switchport mode access
+switchport access vlan 90
+exit
+
+interface vlan 100
+ip address 10.11.12.76 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.73
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/2, fastEthernet 0/4-24
+switchport access vlan 205
+shutdown
+exit
+
+! Enabling Port Security
+interface fastEthernet 0/3
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 10,20,30,90
+ip arp inspection vlan 10,20,30,90
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface range gigabitEthernet 0/1-2, fastEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface fastEthernet 0/3
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# R2 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname R2
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Configure Interfaces & Sub-Interfaces for VLANs
+interface gigabitEthernet 0/0/0.10
+encapsulation dot1Q 10
+ip address 10.11.12.1 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.20
+encapsulation dot1Q 20
+ip address 10.11.12.9 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.30
+encapsulation dot1Q 30
+ip address 10.11.12.17 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.90
+encapsulation dot1Q 90
+ip address 10.11.12.65 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.100
+encapsulation dot1Q 100
+ip address 10.11.12.73 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0
+no shutdown
+exit
+interface serial 0/1/1
+ip address 10.11.12.201 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+
+! Enabling DHCPv4 Servie
+ip dhcp excluded-address 10.11.12.1
+ip dhcp excluded-address 10.11.12.2
+ip dhcp excluded-address 10.11.12.9
+ip dhcp excluded-address 10.11.12.17
+ip dhcp excluded-address 10.11.12.65
+ip dhcp pool IT-VLAN-10
+network 10.11.12.0 255.255.255.248
+default-router 10.11.12.1
+dns-server 10.11.12.235
+exit
+ip dhcp pool Sales-VLAN-20
+network 10.11.12.8 255.255.255.248
+default-router 10.11.12.9
+dns-server 10.11.12.235
+exit
+ip dhcp pool Support-VLAN-30
+network 10.11.12.16 255.255.255.248
+default-router 10.11.12.17
+dns-server 10.11.12.235
+exit
+ip dhcp pool Access_Point-VLAN-90
+network 10.11.12.64 255.255.255.248
+default-router 10.11.12.65
+dns-server 10.11.12.235
+exit
+
+! Enabling OSPFv2 Routing
+router ospf 1
+router-id 2.2.2.2
+network 10.11.12.0 0.0.0.7 area 0
+network 10.11.12.8 0.0.0.7 area 0
+network 10.11.12.16 0.0.0.7 area 0
+network 10.11.12.64 0.0.0.7 area 0
+network 10.11.12.72 0.0.0.7 area 0
+network 10.11.12.200 0.0.0.3 area 0
+exit
+
+! Assigning Privilege Level
+privilege exec level 5 ping
+username Support privilege 5 secret support
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# S5 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname S5
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 40
+name HR
+exit
+vlan 50
+name Managers
+exit
+vlan 60
+name Developers
+exit
+vlan 110
+name Management
+exit
+vlan 253
+name Unused-Ports
+exit
+vlan 251
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/21
+switchport mode access
+switchport access vlan 40
+exit
+interface fastEthernet 0/10
+switchport mode access
+switchport access vlan 50
+exit
+interface fastEthernet 0/3
+switchport mode access
+switchport access vlan 50
+exit
+interface fastEthernet 0/23
+switchport mode access
+switchport access vlan 60
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 40,50,60,110
+switchport trunk native vlan 251
+exit
+
+interface vlan 110
+ip address 10.11.12.82 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.81
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/1-2, fastEthernet 0/4-9, fastEthernet 0/11-20, fastEthernet 0/22, fastEthernet 0/24, gigabitEthernet 0/2
+switchport access vlan 253
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/3, fastEthernet 0/10, fastEthernet 0/21, fastEthernet 0/23
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 40,50,60
+ip arp inspection vlan 40,50,60
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/3, fastEthernet 0/10, fastEthernet 0/21, fastEthernet 0/23
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! 802.1X Authentication
+aaa new-model
+radius-server host 10.11.12.34 key cisco
+
+aaa authentication dot1x default group radius
+
+dot1x system-auth-control
+
+interface range fastEthernet 0/10, fastEthernet 0/21, fastEthernet 0/23
+authentication port-control auto
+dot1x pae authenticator
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# S6 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname S6
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 40
+name HR
+exit
+vlan 50
+name Managers
+exit
+vlan 60
+name Developers
+exit
+vlan 110
+name Management
+exit
+vlan 253
+name Unused-Ports
+exit
+vlan 251
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/5
+switchport mode access
+switchport access vlan 60
+exit
+interface fastEthernet 0/3
+switchport mode access
+switchport access vlan 40
+exit
+interface fastEthernet 0/24
+switchport mode access
+switchport access vlan 50
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 40,50,60,110
+switchport trunk native vlan 251
+exit
+
+interface vlan 110
+ip address 10.11.12.83 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.81
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/1-2, fastEthernet 0/4, fastEthernet 0/6-23, gigabitEthernet 0/2
+switchport access vlan 253
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/3, fastEthernet 0/5, fastEthernet 0/24
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 40,50,60
+ip arp inspection vlan 40,50,60
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/3, fastEthernet 0/5, fastEthernet 0/24
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! 802.1X Authentication
+aaa new-model
+radius-server host 10.11.12.34 key cisco
+
+aaa authentication dot1x default group radius
+
+dot1x system-auth-control
+
+interface range fastEthernet 0/3, fastEthernet 0/5, fastEthernet 0/24
+authentication port-control auto
+dot1x pae authenticator
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# S4 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname S4
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 40
+name HR
+exit
+vlan 50
+name Managers
+exit
+vlan 60
+name Developers
+exit
+vlan 110
+name Management
+exit
+vlan 253
+name Unused-Ports
+exit
+vlan 251
+name New-Native
+exit
+
+! Configure Interfaces
+interface range gigabitEthernet 0/1-2, fastEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 40,50,60,110
+switchport trunk native vlan 251
+exit
+
+interface vlan 110
+ip address 10.11.12.84 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.81
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/2-24
+switchport access vlan 253
+shutdown
+exit
+
+ip dhcp snooping vlan 40,50,60
+ip arp inspection vlan 40,50,60
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface range gigabitEthernet 0/1-2, fastEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# R3 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname R3
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Configure Interfaces & Sub-Interfaces for VLANs
+interface gigabitEthernet 0/0/0.40
+encapsulation dot1Q 40
+ip address 10.11.12.25 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.50
+encapsulation dot1Q 50
+ip address 10.11.12.33 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.60
+encapsulation dot1Q 60
+ip address 10.11.12.41 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.110
+encapsulation dot1Q 110
+ip address 10.11.12.81 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0
+no shutdown
+exit
+interface serial 0/1/0
+ip address 10.11.12.205 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+
+! Enabling DHCPv4 Servie
+ip dhcp excluded-address 10.11.12.25
+ip dhcp excluded-address 10.11.12.33
+ip dhcp excluded-address 10.11.12.34
+ip dhcp excluded-address 10.11.12.40
+ip dhcp pool HR-VLAN-40
+network 10.11.12.24 255.255.255.248
+default-router 10.11.12.25
+dns-server 10.11.12.235
+exit
+ip dhcp pool Managers-VLAN-50
+network 10.11.12.32 255.255.255.248
+default-router 10.11.12.33
+dns-server 10.11.12.235
+exit
+ip dhcp pool Developers-VLAN-60
+network 10.11.12.40 255.255.255.248
+default-router 10.11.12.41
+dns-server 10.11.12.235
+exit
+
+! Enabling OSPFv2 Routing
+router ospf 1
+router-id 3.3.3.3
+network 10.11.12.24 0.0.0.7 area 0
+network 10.11.12.32 0.0.0.7 area 0
+network 10.11.12.40 0.0.0.7 area 0
+network 10.11.12.80 0.0.0.7 area 0
+network 10.11.12.204 0.0.0.3 area 0
+exit
+
+! AAA Authentication
+aaa new-model
+tacacs-server host 10.11.12.2 single-connection key cisco
+
+radius server SERVER-R
+address ipv4 10.11.12.34 auth-port 1645
+key cisco
+exit
+
+aaa authentication login default group tacacs+ group radius local
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# S8 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname S8
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 70
+name Finance
+exit
+vlan 80
+name Desginers
+exit
+vlan 120
+name Management
+exit
+vlan 276
+name Unused-Ports
+exit
+vlan 271
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/22
+switchport mode access
+switchport access vlan 70
+exit
+interface fastEthernet 0/23
+switchport mode access
+switchport access vlan 80
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 70,80,120
+switchport trunk native vlan 271
+exit
+
+interface vlan 120
+ip address 10.11.12.90 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.89
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/1-21, fastEthernet 0/24, gigabitEthernet 0/2
+switchport access vlan 276
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/22-23
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 70,80
+ip arp inspection vlan 70,80
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/22-23
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! 802.1X Authentication
+aaa new-model
+radius-server host 10.11.12.34 key cisco
+
+aaa authentication dot1x default group radius
+
+dot1x system-auth-control
+
+interface range fastEthernet 0/22-23
+authentication port-control auto
+dot1x pae authenticator
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# S9 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname S9
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 70
+name Finance
+exit
+vlan 80
+name Desginers
+exit
+vlan 120
+name Management
+exit
+vlan 276
+name Unused-Ports
+exit
+vlan 271
+name New-Native
+exit
+
+! Configure Interfaces
+interface range fastEthernet 0/22, fastEthernet 0/3, fastEthernet 0/1
+switchport mode access
+switchport access vlan 70
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 70,80,120
+switchport trunk native vlan 271
+exit
+
+interface vlan 120
+ip address 10.11.12.91 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.89
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/2, fastEthernet 0/4-21, fastEthernet 0/23-24, gigabitEthernet 0/2
+switchport access vlan 276
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/1, fastEthernet 0/3, fastEthernet 0/22
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 70,80
+ip arp inspection vlan 70,80
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/1, fastEthernet 0/3, fastEthernet 0/22
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! 802.1X Authentication
+aaa new-model
+radius-server host 10.11.12.34 key cisco
+
+aaa authentication dot1x default group radius
+
+dot1x system-auth-control
+
+interface range fastEthernet 0/1, fastEthernet 0/3, fastEthernet 0/22
+authentication port-control auto
+dot1x pae authenticator
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# S7 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname S7
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 70
+name Finance
+exit
+vlan 80
+name Desginers
+exit
+vlan 120
+name Management
+exit
+vlan 276
+name Unused-Ports
+exit
+vlan 271
+name New-Native
+exit
+
+! Configure Interfaces
+interface range gigabitEthernet 0/1-2, fastEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 70,80,120
+switchport trunk native vlan 271
+exit
+
+interface vlan 120
+ip address 10.11.12.92 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.89
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/2-24
+switchport access vlan 276
+shutdown
+exit
+
+ip dhcp snooping vlan 70,80
+ip arp inspection vlan 70,80
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface range gigabitEthernet 0/1-2, fastEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# R4 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname R4
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Configure Interfaces & Sub-Interfaces for VLANs
+interface gigabitEthernet 0/0/0.70
+encapsulation dot1Q 70
+ip address 10.11.12.49 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.80
+encapsulation dot1Q 80
+ip address 10.11.12.57 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.120
+encapsulation dot1Q 120
+ip address 10.11.12.89 255.255.255.248
+no shutdown
+exit
+interface gigabitEthernet 0/0/0
+no shutdown
+exit
+interface serial 0/1/0
+ip address 10.11.12.209 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+
+! Enabling DHCPv4 Servie
+ip dhcp excluded-address 10.11.12.49
+ip dhcp excluded-address 10.11.12.50
+ip dhcp excluded-address 10.11.12.51
+ip dhcp excluded-address 10.11.12.57
+ip dhcp excluded-address 10.11.12.89
+ip dhcp pool Finance-VLAN-70
+network 10.11.12.48 255.255.255.248
+default-router 10.11.12.49
+dns-server 10.11.12.235
+exit
+ip dhcp pool Desginers-VLAN-80
+network 10.11.12.56 255.255.255.248
+default-router 10.11.12.57
+dns-server 10.11.12.235
+exit
+
+! Enabling OSPFv2 Routing
+router ospf 1
+router-id 4.4.4.4
+network 10.11.12.48 0.0.0.7 area 0
+network 10.11.12.56 0.0.0.7 area 0
+network 10.11.12.88 0.0.0.7 area 0
+network 10.11.12.208 0.0.0.3 area 0
+exit
+
+! AAA Authentication
+aaa new-model
+tacacs-server host 10.11.12.2 single-connection key cisco
+
+radius server SERVER-R
+address ipv4 10.11.12.34 auth-port 1645
+key cisco
+exit
+
+authentication login default group radius group tacacs+ local
+
+! IPsec VPN
+! ISAKMP Policy Configration
+crypto isakmp policy 1
+group 5
+authentication pre-share
+hash sha
+encryption aes
+lifetime 3600
+exit
+
+crypto isakmp key cisco address 10.11.12.217
+
+! IPsec Policy
+ip access-list extended VPN-Connection
+permit ip 10.11.12.48 0.0.0.7 10.11.12.96 0.0.0.7
+permit ip 10.11.12.48 0.0.0.7 10.11.12.104 0.0.0.7
+permit ip 10.11.12.48 0.0.0.7 10.11.12.144 0.0.0.7
+permit ip 10.11.12.56 0.0.0.7 10.11.12.96 0.0.0.7
+permit ip 10.11.12.56 0.0.0.7 10.11.12.104 0.0.0.7
+permit ip 10.11.12.56 0.0.0.7 10.11.12.144 0.0.0.7
+permit ip 10.11.12.88 0.0.0.7 10.11.12.96 0.0.0.7
+permit ip 10.11.12.88 0.0.0.7 10.11.12.104 0.0.0.7
+permit ip 10.11.12.88 0.0.0.7 10.11.12.144 0.0.0.7
+exit
+
+crypto ipsec transform-set R4-R6 esp-aes
+
+crypto map R4-R6_MAP 10 ipsec-isakmp
+match address VPN-Connection
+set transform-set R4-R6
+set peer 10.11.12.217
+set pfs group5
+set security-association lifetime seconds 900
+exit
+
+interface serial 0/1/0
+crypto map R4-R6_MAP
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+######
+# R1 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname R1
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Configure Interfaces
+interface serial 0/1/1
+ip address 10.11.12.202 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+interface serial 0/2/1
+ip address 10.11.12.210 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+interface serial 0/2/0
+ip address 10.11.12.206 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+interface serial 0/1/0
+ip address 10.11.12.213 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+
+! Enabling OSPFv4 Routing
+router ospf 1
+router-id 1.1.1.1
+network 10.11.12.200 0.0.0.3 area 0
+network 10.11.12.208 0.0.0.3 area 0
+network 10.11.12.204 0.0.0.3 area 0
+network 10.11.12.212 0.0.0.3 area 0
+exit
+
+! Enabling Zone-Based Policy Firewall
+zone security IN
+exit
+zone security OUT
+exit
+
+class-map type inspect match-any CLASS_IN2OUT
+match protocol icmp
+match protocol http
+match protocol https
+match protocol ftp
+match protocol dns
+exit
+
+! Allowing IPsec VPN
+ip access-list extended ACL_IPsec
+permit udp any any eq 500
+permit udp any any eq 4500
+permit esp any any
+exit
+
+class-map type inspect match-any CLASS-IPsec
+match access-group name ACL_IPsec
+exit
+
+policy-map type inspect POLICY_IN2OUT
+class CLASS-IPsec
+pass
+class CLASS_IN2OUT
+inspect
+exit
+exit
+
+policy-map type inspect POLICY_OUT2IN
+class CLASS-IPsec
+pass
+exit
+exit
+
+zone-pair security PAIR_IN2OUT source IN destination OUT
+service-policy type inspect POLICY_IN2OUT
+exit
+
+zone-pair security PAIR_OUT2IN source OUT destination IN
+service-policy type inspect POLICY_OUT2IN
+exit
+
+interface serial 0/1/1
+zone-member security IN
+exit
+interface serial 0/2/0
+zone-member security IN
+exit
+interface serial 0/2/1
+zone-member security IN
+exit
+interface serial 0/1/0
+zone-member security OUT
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Sending Logs to SysLog Server
+logging on
+logging 10.11.12.51
+
+! Enabling NTP Server
+ntp server 10.11.12.50
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 cisco
+
+! Save Configration
+do write
+
+#######
+# S11 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S11
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 200
+name Instructors
+exit
+vlan 210
+name Researchers
+exit
+vlan 260
+name Management
+exit
+vlan 300
+name Unused-Ports
+exit
+vlan 305
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/23
+switchport mode access
+switchport access vlan 200
+exit
+interface fastEthernet 0/20
+switchport mode access
+switchport access vlan 210
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 200,210,260
+switchport trunk native vlan 305
+exit
+
+! Switching Database Manager (SDM) template to support IPv6
+sdm prefer dual-ipv4-and-ipv6 default
+do write
+do reload
+
+ipv6 unicast-routing
+
+interface vlan 260
+ip address 10.11.12.146 255.255.255.248
+ipv6 address 2000:12:34:260::2/64
+ipv6 enable
+no shutdown
+exit
+
+! Adding Default Gateway
+ipv6 route ::/0 2000:12:34:260::1
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.145
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/1-19, fastEthernet 0/21-22, fastEthernet 0/24, gigabitEthernet 0/2
+switchport access vlan 300
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/20, fastEthernet 0/23
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 200,210
+ip arp inspection vlan 200,210
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/20, fastEthernet 0/23
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.218
+
+! Save Configration
+do write
+
+#######
+# S12 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S12
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 200
+name Instructors
+exit
+vlan 210
+name Researchers
+exit
+vlan 260
+name Management
+exit
+vlan 300
+name Unused-Ports
+exit
+vlan 305
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/22
+switchport mode access
+switchport access vlan 200
+exit
+interface fastEthernet 0/21
+switchport mode access
+switchport access vlan 210
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 200,210,260
+switchport trunk native vlan 305
+exit
+
+! Switching Database Manager (SDM) template to support IPv6
+sdm prefer dual-ipv4-and-ipv6 default
+do write
+do reload
+
+ipv6 unicast-routing
+
+interface vlan 260
+ip address 10.11.12.147 255.255.255.248
+ipv6 address 2000:12:34:260::3/64
+ipv6 enable
+no shutdown
+exit
+
+! Adding Default Gateway
+ipv6 route ::/0 2000:12:34:260::1
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.145
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/1-20, fastEthernet 0/23-24, gigabitEthernet 0/2
+switchport access vlan 300
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/21-22
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 200,210
+ip arp inspection vlan 200,210
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/21-22
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.218
+
+! Save Configration
+do write
+
+#######
+# S10 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S10
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 200
+name Instructors
+exit
+vlan 210
+name Researchers
+exit
+vlan 260
+name Management
+exit
+vlan 300
+name Unused-Ports
+exit
+vlan 305
+name New-Native
+exit
+
+! Configure Interfaces
+interface range gigabitEthernet 0/1, fastEthernet 0/1, fastEthernet 0/24
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 200,210,260
+switchport trunk native vlan 305
+exit
+
+! Switching Database Manager (SDM) template to support IPv6
+sdm prefer dual-ipv4-and-ipv6 default
+do write
+do reload
+
+ipv6 unicast-routing
+
+interface vlan 260
+ip address 10.11.12.148 255.255.255.248
+ipv6 address 2000:12:34:260::4/64
+ipv6 enable
+no shutdown
+exit
+
+ip dhcp snooping vlan 200,210
+ip arp inspection vlan 200,210
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface range gigabitEthernet 0/1, fastEthernet 0/1, fastEthernet 0/2
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+! Adding Default Gateway
+ipv6 route ::/0 2000:12:34:260::1
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.145
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/2-23, gigabitEthernet 0/2
+switchport access vlan 300
+shutdown
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.218
+
+! Save Configration
+do write
+
+######
+# R6 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname R6
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Enable IPv6 Routing
+ipv6 unicast-routing
+
+! Configure Interfaces & Sub-Interfaces for VLANs
+interface gigabitEthernet 0/0/0.200
+encapsulation dot1Q 200
+ip address 10.11.12.97 255.255.255.248
+ipv6 address 2000:12:34:200::1/64
+ipv6 enable
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.210
+encapsulation dot1Q 210
+ip address 10.11.12.105 255.255.255.248
+ipv6 address 2000:12:34:210::1/64
+ipv6 enable
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.260
+encapsulation dot1Q 260
+ip address 10.11.12.145 255.255.255.248
+ipv6 address 2000:12:34:260::1/64
+ipv6 enable
+no shutdown
+exit
+interface gigabitEthernet 0/0/0
+no shutdown
+exit
+
+interface serial 0/1/0
+ip address 10.11.12.217 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+
+! IPv6-over-IPv4 tunnel to R7 via R5
+interface Tunnel0
+ipv6 address 2001:12:34:1::1/64
+tunnel source Se0/1/0
+tunnel destination 10.11.12.221
+tunnel mode ipv6ip
+exit
+
+! Route R7’s IPv6 LAN via the tunnel
+ipv6 route 2000:12:34:220::/64 2001:12:34:1::2
+ipv6 route 2000:12:34:230::/64 2001:12:34:1::2
+ipv6 route 2000:12:34:270::/64 2001:12:34:1::2
+
+! IPv6-over-IPv4 tunnel to R8 via R5
+interface Tunnel1
+ipv6 address 2001:12:34:2::1/64
+tunnel source Se0/1/0
+tunnel destination 10.11.12.225
+tunnel mode ipv6ip
+exit
+
+! Route R8’s IPv6 LAN via the tunnel
+ipv6 route 2000:12:34:240::/64 2001:12:34:2::2
+ipv6 route 2000:12:34:250::/64 2001:12:34:2::2
+ipv6 route 2000:12:34:280::/64 2001:12:34:2::2
+
+! Enabling OSPFv2 Routing
+router ospf 1
+router-id 6.6.6.6
+network 10.11.12.96 0.0.0.7 area 0
+network 10.11.12.104 0.0.0.7 area 0
+network 10.11.12.144 0.0.0.7 area 0
+network 10.11.12.216 0.0.0.3 area 0
+exit
+
+! Enabling DHCPv4 Servie
+ip dhcp excluded-address 10.11.12.97
+ip dhcp excluded-address 10.11.12.105
+ip dhcp pool Instructors-VLAN-200
+network 10.11.12.96 255.255.255.248
+default-router 10.11.12.97
+dns-server 10.11.12.235
+exit
+ip dhcp pool Researchers-VLAN-210
+network 10.11.12.104 255.255.255.248
+default-router 10.11.12.105
+dns-server 10.11.12.235
+exit
+
+! Configuring Role-Based Views
+aaa new-model
+exit
+enable view
+
+configure terminal
+
+parser view SHOW
+secret show
+commands exec include all show
+exit
+parser view DHCP_Conf
+secret dhcp
+commands exec include configure terminal
+command configure include all ip dhcp
+command configure include network
+command configure include default-router
+command configure include dns-server
+command configure include exit
+command configure include no
+commands exec include all show ip dhcp
+exit
+
+! IPsec VPN
+! ISAKMP Policy Configration
+crypto isakmp policy 1
+group 5
+authentication pre-share
+hash sha
+encryption aes
+lifetime 3600
+exit
+
+crypto isakmp key cisco address 10.11.12.209
+
+! IPsec Policy
+ip access-list extended VPN-Connection
+permit ip 10.11.12.96 0.0.0.7 10.11.12.48 0.0.0.7
+permit ip 10.11.12.96 0.0.0.7 10.11.12.56 0.0.0.7
+permit ip 10.11.12.96 0.0.0.7 10.11.12.88 0.0.0.7
+permit ip 10.11.12.104 0.0.0.7 10.11.12.48 0.0.0.7
+permit ip 10.11.12.104 0.0.0.7 10.11.12.56 0.0.0.7
+permit ip 10.11.12.104 0.0.0.7 10.11.12.88 0.0.0.7
+permit ip 10.11.12.144 0.0.0.7 10.11.12.48 0.0.0.7
+permit ip 10.11.12.144 0.0.0.7 10.11.12.56 0.0.0.7
+permit ip 10.11.12.144 0.0.0.7 10.11.12.88 0.0.0.7
+exit
+
+crypto ipsec transform-set R4-R6 esp-aes
+
+crypto map R4-R6_MAP 10 ipsec-isakmp
+match address VPN-Connection
+set transform-set R4-R6
+set peer 10.11.12.209
+set pfs group5
+set security-association lifetime seconds 900
+exit
+
+interface serial 0/1/0
+crypto map R4-R6_MAP
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.218
+
+! Save Configration
+do write
+
+#######
+# S14 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S14
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 220
+name Graphics
+exit
+vlan 230
+name Branding
+exit
+vlan 270
+name Management
+exit
+vlan 330
+name Unused-Ports
+exit
+vlan 335
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/22
+switchport mode access
+switchport access vlan 220
+exit
+interface fastEthernet 0/20
+switchport mode access
+switchport access vlan 230
+exit
+interface gigabitEthernet 0/2
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 220,230,270
+switchport trunk native vlan 335
+exit
+
+! Switching Database Manager (SDM) template to support IPv6
+sdm prefer dual-ipv4-and-ipv6 default
+do write
+do reload
+
+interface vlan 270
+ip address 10.11.12.154 255.255.255.248
+ipv6 address 2000:12:34:270::2/64
+ipv6 enable
+no shutdown
+exit
+
+ipv6 unicast-routing
+
+! Adding Default Gateway
+ipv6 route ::/0 2000:12:34:270::1
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.153
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/1-19, fastEthernet 0/21, fastEthernet 0/23, fastEthernet 0/24, gigabitEthernet 0/1
+switchport access vlan 330
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/20, fastEthernet 0/22
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 220,230
+ip arp inspection vlan 220,230
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/2
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/20, fastEthernet 0/22
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.222
+
+! Save Configration
+do write
+
+#######
+# S15 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S15
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 220
+name Graphics
+exit
+vlan 230
+name Branding
+exit
+vlan 270
+name Management
+exit
+vlan 330
+name Unused-Ports
+exit
+vlan 335
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/24
+switchport mode access
+switchport access vlan 220
+exit
+interface fastEthernet 0/19
+switchport mode access
+switchport access vlan 230
+exit
+interface gigabitEthernet 0/2
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 220,230,270
+switchport trunk native vlan 335
+exit
+
+! Switching Database Manager (SDM) template to support IPv6
+sdm prefer dual-ipv4-and-ipv6 default
+do write
+do reload
+
+interface vlan 270
+ip address 10.11.12.155 255.255.255.248
+ipv6 address 2000:12:34:270::3/64
+ipv6 enable
+no shutdown
+exit
+
+ipv6 unicast-routing
+
+! Adding Default Gateway
+ipv6 route ::/0 2000:12:34:270::1
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.153
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/1-18, fastEthernet 0/20-23, gigabitEthernet 0/1
+switchport access vlan 330
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/19, fastEthernet 0/24
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 220,230
+ip arp inspection vlan 220,230
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/2
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/19, fastEthernet 0/24
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.222
+
+! Save Configration
+do write
+
+#######
+# S13 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S13
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 220
+name Graphics
+exit
+vlan 230
+name Branding
+exit
+vlan 270
+name Management
+exit
+vlan 330
+name Unused-Ports
+exit
+vlan 335
+name New-Native
+exit
+
+! Configure Interfaces
+interface range gigabitEthernet 0/1-2, fastEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 220,230,270
+switchport trunk native vlan 335
+exit
+
+! Switching Database Manager (SDM) template to support IPv6
+sdm prefer dual-ipv4-and-ipv6 default
+do write
+do reload
+
+interface vlan 270
+ip address 10.11.12.156 255.255.255.248
+ipv6 address 2000:12:34:270::4/64
+ipv6 enable
+no shutdown
+exit
+
+ipv6 unicast-routing
+
+! Adding Default Gateway
+ipv6 route ::/0 2000:12:34:270::1
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.153
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/2-24
+switchport access vlan 330
+shutdown
+exit
+
+ip dhcp snooping vlan 220,230
+ip arp inspection vlan 220,230
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface range gigabitEthernet 0/1-2, fastEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.222
+
+! Save Configration
+do write
+
+######
+# R7 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname R7
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Enable IPv6 Routing
+ipv6 unicast-routing
+
+! Configure Interfaces & Sub-Interfaces for VLANs
+interface gigabitEthernet 0/0/0.220
+encapsulation dot1Q 220
+ip address 10.11.12.113 255.255.255.248
+ipv6 address 2000:12:34:220::1/64
+ipv6 enable
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.230
+encapsulation dot1Q 230
+ip address 10.11.12.121 255.255.255.248
+ipv6 address 2000:12:34:230::1/64
+ipv6 enable
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.270
+encapsulation dot1Q 270
+ip address 10.11.12.153 255.255.255.248
+ipv6 address 2000:12:34:270::1/64
+ipv6 enable
+no shutdown
+exit
+
+interface gigabitEthernet 0/0/0
+no shutdown
+exit
+
+interface serial 0/1/0
+ip address 10.11.12.221 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+
+! IPv6-over-IPv4 tunnel to R6 via R5
+interface Tunnel0
+ipv6 address 2001:12:34:1::2/64
+tunnel source Se0/1/0
+tunnel destination 10.11.12.217
+tunnel mode ipv6ip
+exit
+
+! Route R6’s IPv6 LAN via the tunnel
+ipv6 route 2000:12:34:200::/64 2001:12:34:1::1
+ipv6 route 2000:12:34:210::/64 2001:12:34:1::1
+ipv6 route 2000:12:34:260::/64 2001:12:34:1::1
+
+! IPv6-over-IPv4 tunnel to R8 via R5
+interface Tunnel2
+ipv6 address 2001:12:34:3::1/64
+tunnel source Se0/1/0
+tunnel destination 10.11.12.225
+tunnel mode ipv6ip
+exit
+
+! Route R8’s IPv6 LAN via the tunnel
+ipv6 route 2000:12:34:240::/64 2001:12:34:3::2
+ipv6 route 2000:12:34:250::/64 2001:12:34:3::2
+ipv6 route 2000:12:34:280::/64 2001:12:34:3::2
+
+! Enabling OSPFv2 Routing
+router ospf 1
+router-id 7.7.7.7
+network 10.11.12.112 0.0.0.7 area 0
+network 10.11.12.120 0.0.0.7 area 0
+network 10.11.12.152 0.0.0.7 area 0
+network 10.11.12.220 0.0.0.3 area 0
+exit
+
+! Enabling DHCPv4 Servie
+ip dhcp excluded-address 10.11.12.113
+ip dhcp excluded-address 10.11.12.121
+ip dhcp pool Graphics-VLAN-220
+network 10.11.12.112 255.255.255.248
+default-router 10.11.12.113
+dns-server 10.11.12.235
+exit
+ip dhcp pool Branding-VLAN-230
+network 10.11.12.120 255.255.255.248
+default-router 10.11.12.121
+dns-server 10.11.12.235
+exit
+
+! IPv6 ACL for Branding VLAN
+ipv6 access-list Branding2Out
+permit icmp 2000:12:34:230::0/64 any nd-na
+permit icmp 2000:12:34:230::0/64 any nd-ns
+permit icmp 2000:12:34:230::0/64 any echo-reply
+exit
+
+interface gigabitEthernet 0/0/0.230
+ipv6 traffic-filter Branding2Out in
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.222
+
+! Save Configration
+do write
+
+#######
+# S17 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S17
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 240
+name Analysts
+exit
+vlan 250
+name Auditors
+exit
+vlan 280
+name Management
+exit
+vlan 360
+name Unused-Ports
+exit
+vlan 365
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/23
+switchport mode access
+switchport access vlan 240
+exit
+interface fastEthernet 0/21
+switchport mode access
+switchport access vlan 250
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 240,250,280
+switchport trunk native vlan 365
+exit
+
+! Switching Database Manager (SDM) template to support IPv6
+sdm prefer dual-ipv4-and-ipv6 default
+do write
+do reload
+
+interface vlan 280
+ip address 10.11.12.162 255.255.255.248
+ipv6 address 2000:12:34:280::2/64
+ipv6 enable
+no shutdown
+exit
+
+ipv6 unicast-routing
+
+! Adding Default Gateway
+ipv6 route ::/0 2000:12:34:280::1
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.161
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/1-20, fastEthernet 0/22, fastEthernet 0/24, gigabitEthernet 0/2
+switchport access vlan 360
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/21, fastEthernet 0/23
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 240,250
+ip arp inspection vlan 240,250
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/21, fastEthernet 0/23
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.226
+
+! Save Configration
+do write
+
+#######
+# S18 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S18
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 240
+name Analysts
+exit
+vlan 250
+name Auditors
+exit
+vlan 280
+name Management
+exit
+vlan 360
+name Unused-Ports
+exit
+vlan 365
+name New-Native
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/21
+switchport mode access
+switchport access vlan 240
+exit
+interface fastEthernet 0/22
+switchport mode access
+switchport access vlan 250
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 240,250,280
+switchport trunk native vlan 365
+exit
+
+! Switching Database Manager (SDM) template to support IPv6
+sdm prefer dual-ipv4-and-ipv6 default
+do write
+do reload
+
+interface vlan 280
+ip address 10.11.12.163 255.255.255.248
+ipv6 address 2000:12:34:280::3/64
+ipv6 enable
+no shutdown
+exit
+
+ipv6 unicast-routing
+
+! Adding Default Gateway
+ipv6 route ::/0 2000:12:34:280::1
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.161
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/1-20, fastEthernet 0/23-24, gigabitEthernet 0/2
+switchport access vlan 360
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/21-22
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping vlan 240,250
+ip arp inspection vlan 240,250
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/21-22
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.226
+
+! Save Configration
+do write
+
+#######
+# S16 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S16
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 240
+name Analysts
+exit
+vlan 250
+name Auditors
+exit
+vlan 280
+name Management
+exit
+vlan 360
+name Unused-Ports
+exit
+vlan 365
+name New-Native
+exit
+
+! Configure Interfaces
+interface range gigabitEthernet 0/1-2, fastEthernet 0/1
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 240,250,280
+switchport trunk native vlan 365
+exit
+
+! Switching Database Manager (SDM) template to support IPv6
+sdm prefer dual-ipv4-and-ipv6 default
+do write
+do reload
+
+interface vlan 280
+ip address 10.11.12.164 255.255.255.248
+ipv6 address 2000:12:34:280::4/64
+ipv6 enable
+no shutdown
+exit
+
+ipv6 unicast-routing
+
+! Adding Default Gateway
+ipv6 route ::/0 2000:12:34:280::1
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.161
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/2-24
+switchport access vlan 360
+shutdown
+exit
+
+ip dhcp snooping vlan 240,250
+ip arp inspection vlan 240,250
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface range gigabitEthernet 0/1-2, fastEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.226
+
+! Save Configration
+do write
+
+######
+# R8 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname R8
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Enable IPv6 Routing
+ipv6 unicast-routing
+
+! Configure Interfaces & Sub-Interfaces for VLANs
+interface gigabitEthernet 0/0/0.240
+encapsulation dot1Q 240
+ip address 10.11.12.129 255.255.255.248
+ipv6 address 2000:12:34:240::1/64
+ipv6 enable
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.250
+encapsulation dot1Q 250
+ip address 10.11.12.137 255.255.255.248
+ipv6 address 2000:12:34:250::1/64
+ipv6 enable
+no shutdown
+exit
+interface gigabitEthernet 0/0/0.280
+encapsulation dot1Q 280
+ip address 10.11.12.161 255.255.255.248
+ipv6 address 2000:12:34:280::1/64
+ipv6 enable
+no shutdown
+exit
+
+interface gigabitEthernet 0/0/0
+no shutdown
+exit
+
+interface serial 0/1/1
+ip address 10.11.12.225 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+
+! IPv6-over-IPv4 tunnel to R6 via R5
+interface Tunnel1
+ipv6 address 2001:12:34:2::2/64
+tunnel source Se0/1/1
+tunnel destination 10.11.12.217
+tunnel mode ipv6ip
+exit
+
+! Route R6’s IPv6 LAN via the tunnel
+ipv6 route 2000:12:34:200::/64 2001:12:34:2::1
+ipv6 route 2000:12:34:210::/64 2001:12:34:2::1
+ipv6 route 2000:12:34:260::/64 2001:12:34:2::1
+
+! IPv6-over-IPv4 tunnel to R7 via R5
+interface Tunnel2
+ipv6 address 2001:12:34:3::2/64
+tunnel source Se0/1/1
+tunnel destination 10.11.12.221
+tunnel mode ipv6ip
+exit
+
+! Route R7’s IPv6 LAN via the tunnel
+ipv6 route 2000:12:34:220::/64 2001:12:34:3::1
+ipv6 route 2000:12:34:230::/64 2001:12:34:3::1
+ipv6 route 2000:12:34:270::/64 2001:12:34:3::1
+
+! Enabling OSPFv2 Routing
+router ospf 1
+router-id 8.8.8.8
+network 10.11.12.128 0.0.0.7 area 0
+network 10.11.12.136 0.0.0.7 area 0
+network 10.11.12.160 0.0.0.7 area 0
+network 10.11.12.224 0.0.0.3 area 0
+exit
+
+! Enabling DHCPv4 Servie
+ip dhcp excluded-address 10.11.12.129
+ip dhcp excluded-address 10.11.12.137
+ip dhcp pool Analysts-VLAN-240
+network 10.11.12.128 255.255.255.248
+default-router 10.11.12.129
+dns-server 10.11.12.235
+exit
+ip dhcp pool Auditors-VLAN-250
+network 10.11.12.136 255.255.255.248
+default-router 10.11.12.137
+dns-server 10.11.12.235
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+ntp server 10.11.12.226
+
+! Save Configration
+do write
+
+######
+# R5 #
+######
+! Basic Configration
+enable
+configure terminal
+
+hostname R5
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Configure Interfaces
+interface serial 0/1/0
+ip address 10.11.12.214 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+interface serial 0/1/1
+ip address 10.11.12.218 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+interface serial 0/2/0
+ip address 10.11.12.222 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+interface serial 0/2/1
+ip address 10.11.12.226 255.255.255.252
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 cisco
+no shutdown
+exit
+interface gigabitEthernet 0/0/0
+ip address 10.11.12.233 255.255.255.248
+no shutdown
+exit
+interface loopback 0
+ip address 5.5.5.5 255.255.255.0
+no shutdown
+exit
+
+! Enabling OSPFv2 Routing
+router ospf 1
+router-id 5.5.5.5
+network 10.11.12.212 0.0.0.3 area 0
+network 10.11.12.216 0.0.0.3 area 0
+network 10.11.12.220 0.0.0.3 area 0
+network 10.11.12.224 0.0.0.3 area 0
+network 10.11.12.228 0.0.0.3 area 0
+network 10.11.12.232 0.0.0.3 area 0
+exit
+
+! Using Static IP for Inside Network
+ip route 10.11.12.235 255.255.255.255 10.11.12.234
+ip route 10.11.12.237 255.255.255.255 10.11.12.234
+
+! Enabling IPS
+exit
+mkdir ipsdir
+configure terminal
+ip ips config location ipsdir
+ip ips name iosips
+
+ip ips signature-category
+category all
+retired true
+exit
+category ios_ips basic
+retired false
+exit
+exit
+
+interface serial 0/1/0
+ip ips iosips in
+exit
+interface gigabitEthernet 0/0/0
+ip ips iosips in
+exit
+
+! Inspect ICMP Requests from Outside
+ip ips signature-definition
+signature 2004 0
+status
+retired false
+enabled true
+exit
+engine
+event-action deny-packet-inline
+event-action produce-alert
+exit
+exit
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Enabling NTP Server
+exit
+clock set 19:14:50 jan 31 2025
+configure terminal
+ntp master 1
+
+! Save Configration
+do write
+
+#######
+# ASA #
+#######
+! Basic Configuration
+enable
+configure terminal
+hostname ASA-FW
+domain-name cisco.local
+enable password cisco
+username cisco password cisco
+crypto key generate rsa modulus 1024
+yes
+ssh 10.11.12.192 255.255.255.248 INSIDE
+aaa authentication ssh console LOCAL
+
+! Configure Interfaces
+interface gigabitEthernet 1/1
+nameif OUTSIDE
+security-level 0
+ip address 10.11.12.234 255.255.255.248
+no shutdown
+exit
+configure terminal
+
+interface gigabitEthernet 1/2
+nameif INSIDE
+security-level 100
+ip address 10.11.12.193 255.255.255.248
+no shutdown
+exit
+configure terminal
+
+interface gigabitEthernet 1/3
+nameif DMZ
+security-level 50
+ip address 10.11.12.185 255.255.255.248
+no shutdown
+exit
+configure terminal
+
+! To Accept ICMP Reply
+policy-map global_policy
+class inspection_default
+inspect dns
+no inspect icmp
+no inspect ftp
+no inspect tftp
+no inspect http
+exit
+
+route OUTSIDE 0.0.0.0 0.0.0.0 10.11.12.233
+
+object network INSIDE-Network
+subnet 10.11.12.192 255.255.255.248
+nat (INSIDE,OUTSIDE) static 10.11.12.237
+exit
+configure terminal
+
+object network DMZ-Network
+subnet 10.11.12.184 255.255.255.248
+exit
+configure terminal
+
+object network SERVER-DMZ-NET
+host 10.11.12.187
+nat (DMZ,OUTSIDE) static 10.11.12.235
+exit
+configure terminal
+
+object network PC-DMZ-NET
+host 10.11.12.188
+nat (DMZ,OUTSIDE) static 10.11.12.236
+exit
+configure terminal
+
+! Applying Policies
+access-list OUTSIDE_ACL extended permit tcp any host 10.11.12.235 eq 80
+access-list OUTSIDE_ACL extended permit tcp any host 10.11.12.235 eq 443
+access-list OUTSIDE_ACL extended permit tcp any host 10.11.12.235 eq 25
+access-list OUTSIDE_ACL extended permit tcp any host 10.11.12.235 eq 110
+access-list OUTSIDE_ACL extended permit udp any host 10.11.12.235 eq 53
+access-list OUTSIDE_ACL extended permit tcp any host 10.11.12.235 eq 21
+access-list OUTSIDE_ACL extended permit tcp any host 10.11.12.235 eq 20
+access-list OUTSIDE_ACL extended permit tcp host 10.11.12.235 eq 443 host 10.11.12.237
+access-list OUTSIDE_ACL extended permit tcp host 10.11.12.235 eq www host 10.11.12.237
+access-list OUTSIDE_ACL extended permit icmp any any echo-reply
+access-group OUTSIDE_ACL in interface OUTSIDE
+
+access-list DMZ_ACL extended permit tcp object DMZ-Network object INSIDE-Network eq 22
+access-list DMZ_ACL extended permit tcp object DMZ-Network object INSIDE-Network eq 23
+access-list DMZ_ACL extended permit udp host 10.11.12.187 eq 53 any
+access-group DMZ_ACL in interface DMZ
+
+write memory
+
+#######
+# S19 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S19
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 500
+name Unused-Ports
+exit
+
+! Configure Interfaces
+interface range fastEthernet 0/1-2
+switchport mode access
+exit
+
+interface vlan 1
+ip address 10.11.12.186 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.185
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/3-24, gigabitEthernet 0/2
+switchport access vlan 500
+shutdown
+exit
+
+! Enabling Port Security
+interface range fastEthernet 0/1-2
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping
+ip arp inspection vlan 1
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface range fastEthernet 0/1-2
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Save Configration
+do write
+
+#######
+# S20 #
+#######
+! Basic Configration
+enable
+configure terminal
+
+hostname S20
+
+banner motd &#### Authorized Access Only ####&
+
+username cisco privilege 15 secret cisco
+
+ip domain-name cisco.local
+crypto key generate rsa general-keys modulus 1024
+
+line vty 0 4
+login local
+transport input ssh
+exit
+
+line console 0
+login local
+exit
+
+enable secret cisco
+
+service password-encryption
+
+! Creating VLANs
+vlan 510
+name Unused-Ports
+exit
+
+! Configure Interfaces
+interface fastEthernet 0/1
+switchport mode access
+exit
+
+interface vlan 1
+ip address 10.11.12.194 255.255.255.248
+no shutdown
+exit
+
+! Adding Default Gateway
+ip default-gateway 10.11.12.193
+
+! Adding All Unused Ports in Different VLAN
+interface range fastEthernet 0/2-24, gigabitEthernet 0/2
+switchport access vlan 510
+shutdown
+exit
+
+! Enabling Port Security
+interface fastEthernet 0/1
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+exit
+
+ip dhcp snooping
+ip arp inspection vlan 1
+ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+
+interface gigabitEthernet 0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+interface fastEthernet 0/1
+ip dhcp snooping limit rate 6
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+! Enabling Timestamps in Logs
+service timestamps log datetime msec
+
+! Save Configration
+do write
